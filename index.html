@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supernova Ultimate Frisbee/title>
+    <title>Supernova Ultimate Frisbee</title>
     <style>
         /* UChicago Official Color Palette System */
         :root {
@@ -163,41 +163,6 @@
             font-size: 0.95rem;
         }
 
-        /* Schedule Table */
-        .table-container {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 1.2rem;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--primary);
-            color: var(--white);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr {
-            border-bottom: 1px solid var(--greystone-light);
-        }
-
         /* Photo Gallery Grid */
         .gallery-grid {
             display: grid;
@@ -290,7 +255,6 @@
 <body>
 
     <!-- Navigation -->
-<!-- Navigation -->
     <nav>
         <div class="logo" style="display: flex; align-items: center; gap: 10px;">
             <img src="logo.PNG" alt="UChicago Supernova Logo" style="height: 40px; width: auto; object-fit: contain;">
@@ -481,8 +445,18 @@
         </div>
     </section>
 
-    <!-- Photo Gallery Section -->
-    <!-- Photo Gallery Section -->
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <h2>Upcoming Schedule</h2>
+        <div style="background-color: var(--white); border-left: 6px solid var(--primary); padding: 2.5rem 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
+            <span class="status-badge" style="background-color: var(--secondary); margin-bottom: 0.75rem;">Dates TBD</span>
+            <h3 style="margin-bottom: 0.5rem; color: var(--accent); font-size: 1.5rem;">2026-2027 Season Schedule is Under Construction</h3>
+            <p style="color: var(--secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+                We are currently finalizing tournament dates, scrimmages, and practice timelines for the upcoming academic year. Follow our social channels or check back here soon for scheduling updates!
+            </p>
+        </div>
+    </section>
+
     <!-- Photo Gallery Section -->
     <section id="photos">
         <h2>Team Photos</h2>
@@ -627,7 +601,6 @@
                 <img src="phil.PNG" alt="Phil">
                 <div class="gallery-caption">Phil helping us with recruitment!</div>
             </div>
-
 
             <div class="gallery-item">
                 <img src="regionals2025.PNG" alt="Regionals 2025">
