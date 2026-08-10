@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UChicago Ultimate Frisbee</title>
+    <style>
+        /* UChicago Official Color Palette System */
+        :root {
+            --primary: #800000;      /* UChicago Maroon */
+            --secondary: #737373;    /* Dark Greystone */
+            --accent: #000000;       /* Black */
+            --bg-light: #f8f9fa;     /* Soft Light Gray Background */
+            --white: #ffffff;
+            --text-dark: #1a1a1a;    /* Off-black for high contrast readability */
+            --greystone-light: #D9D9D9; /* Light Greystone */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--accent); /* Black navbar */
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary); /* Maroon bottom accent */
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--greystone-light);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Banner (Maroon to Black Gradient) */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 1.5rem auto;
+            opacity: 0.9;
+        }
+
+        /* Social Icons container */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            color: var(--white);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 4px; /* Slightly blockier varsity style */
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+
+        /* Section layout */
+        section {
+            max-width: 1100px;
+            margin: 3.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Roster Grid */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .player-card {
+            background-color: var(--white);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 4px solid var(--primary); /* Maroon Card Accent */
+        }
+
+        .player-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .player-card h3 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .player-card p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Schedule Table */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr {
+            border-bottom: 1px solid var(--greystone-light);
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            aspect-ratio: 4/3;
+            border: 1px solid var(--greystone-light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(15%); /* Subtle athletic vintage feel, optional */
+            transition: filter 0.3s;
+        }
+
+        .gallery-item img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Jersey Order / Merch section */
+        .merch-box {
+            background-color: var(--accent); /* Solid Black Box */
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--primary); /* Left Maroon Accent Bar */
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.35rem 1rem;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .merch-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            border-top: 4px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🥏 UChicago Ultimate</div>
+        <div>
+            <a href="#roster">Roster</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#photos">Photos</a>
+            <a href="#merch">Jerseys</a>
+        </div>
+    </nav>
+
+    <!-- Hero Header with Social Links -->
+    <header class="hero">
+        <h1>UChicago Ultimate</h1>
+        <p>Official page of the University of Chicago Maroons Ultimate Frisbee Club. Chasing championships and laying out on the Midway.</p>
+        
+        <div class="social-links">
+            <!-- Instagram Link -->
+            <a href="https://instagram.com/yourhandle" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                Instagram
+            </a>
+            <!-- X/Twitter Link -->
+            <a href="https://x.com/yourhandle" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X
+            </a>
+        </div>
+    </header>
+
+    <!-- Roster Section -->
+    <section id="roster">
+        <h2>The Roster</h2>
+        <div class="roster-grid">
+            
+            <div class="player-card">
+                <div class="player-number">#21</div>
+                <h3>Alex Smith</h3>
+                <p>Position: Handler</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#7</div>
+                <h3>Jordan Lee</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#42</div>
+                <h3>Taylor Green</h3>
+                <p>Position: Handler (Captain)</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#11</div>
+                <h3>Morgan Fox</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <h2>Upcoming Schedule</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event / Opponent</th>
+                        <th>Location</th>
+                        <th>Time / Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sept 12, 2026</td>
+                        <td>Great Lakes Warm-Up</td>
+                        <td>Stagg Field</td>
+                        <td>9:00 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 3, 2026</td>
+                        <td>Vs. Northwestern</td>
+                        <td>Midway Plaisance</td>
+                        <td>2:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 24, 2026</td>
+                        <td>Sectionals Tournament</td>
+                        <td>Off-Campus Fields</td>
+                        <td>All Day</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="photos">
+        <h2>Team Photos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1593787406536-3676a152d9cb?auto=format&fit=crop&w=600&q=80" alt="Frisbee on grass">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544698310-74ea9d1c8258?auto=format&fit=crop&w=600&q=80" alt="People playing ultimate frisbee">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Athletic training">
+            </div>
+        </div>
+    </section>
+
+    <!-- Jersey Order Section -->
+    <section id="merch">
+        <h2>Team Gear</h2>
+        <div class="merch-box">
+            <span class="status-badge">TBD / Coming Soon</span>
+            <h3>Fan Jersey Order</h3>
+            <p style="margin: 1rem 0 1.5rem 0; font-size: 1.1rem; max-width: 600px; margin-inline: auto; opacity: 0.9;">
+                We are currently collaborating on our new kit designs for the season. Once layouts are approved, we will share the link to order custom varsity Maroon jerseys.
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Check back here or follow our social accounts for pre-order announcements.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 UChicago Ultimate Club. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
