@@ -212,6 +212,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             aspect-ratio: 4/3;
             border: 1px solid var(--greystone-light);
+            background-color: var(--accent); /* Black background fallback */
         }
 
         .gallery-item img {
@@ -219,12 +220,31 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: grayscale(15%); /* Subtle athletic vintage feel, optional */
-            transition: filter 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
         }
 
-        .gallery-item img:hover {
-            filter: grayscale(0%);
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: var(--white);
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
         }
 
         /* Jersey Order / Merch section */
@@ -270,8 +290,12 @@
 <body>
 
     <!-- Navigation -->
+<!-- Navigation -->
     <nav>
-        <div class="logo">🥏 UChicago Ultimate</div>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.PNG" alt="UChicago Supernova Logo" style="height: 40px; width: auto; object-fit: contain;">
+            <span>UChicago Supernova</span>
+        </div>
         <div>
             <a href="#roster">Roster</a>
             <a href="#schedule">Schedule</a>
@@ -283,11 +307,11 @@
     <!-- Hero Header with Social Links -->
     <header class="hero">
         <h1>UChicago Ultimate</h1>
-        <p>Official page of the University of Chicago Maroons Ultimate Frisbee Club. Chasing championships and laying out on the Midway.</p>
+        <p>Official page of the University of Chicago Women's and Non-Binary Frisbee Club. Chasing greatness and laying out on the Midway.</p>
         
         <div class="social-links">
             <!-- Instagram Link -->
-            <a href="https://instagram.com/yourhandle" target="_blank" class="social-icon">
+            <a href="https://instagram.com/uchi_supernova" target="_blank" class="social-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -296,7 +320,7 @@
                 Instagram
             </a>
             <!-- X/Twitter Link -->
-            <a href="https://x.com/yourhandle" target="_blank" class="social-icon">
+            <a href="https://x.com/uchi_supernova" target="_blank" class="social-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
@@ -311,81 +335,323 @@
         <div class="roster-grid">
             
             <div class="player-card">
-                <div class="player-number">#21</div>
-                <h3>Alex Smith</h3>
-                <p>Position: Handler</p>
+                <div class="player-number">#7</div>
+                <h3>Chimin</h3>
+                <p>Position: Cutter</p>
             </div>
 
             <div class="player-card">
-                <div class="player-number">#7</div>
-                <h3>Jordan Lee</h3>
+                <div class="player-number">#37</div>
+                <h3>Clara</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#--</div>
+                <h3>Elyn</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#14</div>
+                <h3>Emma</h3>
+                <p>Position: Hybrid</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#23</div>
+                <h3>Eva</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#16</div>
+                <h3>Georgie</h3>
+                <p>Position: Hybrid</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#4</div>
+                <h3>Greta</h3>
                 <p>Position: Cutter</p>
             </div>
 
             <div class="player-card">
                 <div class="player-number">#42</div>
-                <h3>Taylor Green</h3>
-                <p>Position: Handler (Captain)</p>
-            </div>
-
-            <div class="player-card">
-                <div class="player-number">#11</div>
-                <h3>Morgan Fox</h3>
+                <h3>Hannah</h3>
                 <p>Position: Cutter</p>
             </div>
 
-        </div>
-    </section>
+            <div class="player-card">
+                <div class="player-number">#10</div>
+                <h3>Hanying</h3>
+                <p>Position: Cutter</p>
+            </div>
 
-    <!-- Schedule Section -->
-    <section id="schedule">
-        <h2>Upcoming Schedule</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Event / Opponent</th>
-                        <th>Location</th>
-                        <th>Time / Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sept 12, 2026</td>
-                        <td>Great Lakes Warm-Up</td>
-                        <td>Stagg Field</td>
-                        <td>9:00 AM</td>
-                    </tr>
-                    <tr>
-                        <td>Oct 3, 2026</td>
-                        <td>Vs. Northwestern</td>
-                        <td>Midway Plaisance</td>
-                        <td>2:00 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Oct 24, 2026</td>
-                        <td>Sectionals Tournament</td>
-                        <td>Off-Campus Fields</td>
-                        <td>All Day</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="player-card">
+                <div class="player-number">#22</div>
+                <h3>Isabelle</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#27</div>
+                <h3>Jolie</h3>
+                <p>Position: Hybrid</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#8</div>
+                <h3>Josephine</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#5</div>
+                <h3>Kacey</h3>
+                <p>Position: Handler</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#75</div>
+                <h3>Kathy</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#15</div>
+                <h3>Kriti</h3>
+                <p>Position: Handler</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#33</div>
+                <h3>Nina</h3>
+                <p>Position: Hybrid</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#20</div>
+                <h3>Nora</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#13</div>
+                <h3>Piper</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#25</div>
+                <h3>Sarah</h3>
+                <p>Position: Hybrid</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#24</div>
+                <h3>Seth</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#49</div>
+                <h3>Urjita</h3>
+                <p>Position: Handler</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#18</div>
+                <h3>Violet</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#28</div>
+                <h3>Vivian</h3>
+                <p>Position: Cutter</p>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#26</div>
+                <h3>Wenxin</h3>
+                <p>Position: Handler</p>
+            </div>
+
         </div>
     </section>
 
     <!-- Photo Gallery Section -->
+    <!-- Photo Gallery Section -->
+    <!-- Photo Gallery Section -->
     <section id="photos">
         <h2>Team Photos</h2>
         <div class="gallery-grid">
+
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1593787406536-3676a152d9cb?auto=format&fit=crop&w=600&q=80" alt="Frisbee on grass">
+                <img src="regionals2026.JPG" alt="Regionals 2026">
+                <div class="gallery-caption">Regionals (2026)</div>
             </div>
+
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1544698310-74ea9d1c8258?auto=format&fit=crop&w=600&q=80" alt="People playing ultimate frisbee">
+                <img src="sillyregionals2025.PNG" alt="Silly Regionals 2025">
+                <div class="gallery-caption">Silly Regionals (2025)</div>
             </div>
+
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Athletic training">
+                <img src="941284F7-AC12-4CC0-8CB2-60A7AC18FEB8.JPG" alt="Supernova Photo">
+                <div class="gallery-caption">Supernova crew at Frisbee Spring Break (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="FFF38142-B9AC-4B76-B7FB-CC5BF38D233E.JPG" alt="Supernova Photo">
+                <div class="gallery-caption">Emma and Urjita having fun at Regionals (2026)</div>
+            </div>
+
+             <div class="gallery-item">
+                <img src="jocelynmog.JPG" alt="Jocelyn Mog">
+                <div class="gallery-caption">Jocelyn about to make a glorious throw!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="alliemog.JPG" alt="Allie Mog">
+                <div class="gallery-caption">Allie laying out!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="baseball2025.PNG" alt="Baseball 2025">
+                <div class="gallery-caption">Frisbee family at a Cubs game (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="bingo.PNG" alt="Supernova Bingo">
+                <div class="gallery-caption">Regionals 2025 Bingo Card</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="commonwealth2025.PNG" alt="Commonwealth 2025">
+                <div class="gallery-caption">Commonwealth (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="commonwealth2026.PNG" alt="Commonwealth 2026">
+                <div class="gallery-caption">Commonwealth (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="commonwealthswag2025.PNG" alt="Commonwealth Swag 2025">
+                <div class="gallery-caption">Showing our swag at Commonwealth (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="culvers2025.PNG" alt="Culvers 2025">
+                <div class="gallery-caption">Post-Tournament Culver's Run (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="dock2025.JPG" alt="Dock 2025">
+                <div class="gallery-caption">On the dock at Frisbee Spring Break (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="doingthenancyface.JPG" alt="Doing the Nancy Face">
+                <div class="gallery-caption">Doing the Nancy Face</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="dyingatcommonwealth2026.PNG" alt="Dying at Commonwealth 2026">
+                <div class="gallery-caption">Jolie performs CPR on Emma at Commonwealth (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="elizagloriaflex.PNG" alt="Eliza and Gloria Flex">
+                <div class="gallery-caption">Eliza & Gloria Flexing at Lounge of Lizards (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="emmawithgoldfish.JPG" alt="Emma with Goldfish">
+                <div class="gallery-caption">Emma snacking at Commonwealth (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="endofcommonwealth2026.PNG" alt="End of Commonwealth 2026">
+                <div class="gallery-caption">End of Commonwealth team huddle (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="familyphoto2025.JPG" alt="Family Photo 2025">
+                <div class="gallery-caption">Family Photo (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="incar2026.PNG" alt="In Car 2026">
+                <div class="gallery-caption">On our way to a scrimmage! (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="emmaonground.JPG" alt="Emma on Ground">
+                <div class="gallery-caption">Emma looking happy at Frisbee Spring Break (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="jocelynmog2.JPG" alt="Jocelyn Mog 2">
+                <div class="gallery-caption">Jocelyn making a glorious catch!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="loungeoflizards2025.PNG" alt="Lounge of Lizards 2025">
+                <div class="gallery-caption">Lounge of Lizards (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="nancyatnattys.JPEG" alt="Nancy at Nattys">
+                <div class="gallery-caption">Nancy is going to Nattys! (2023)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="emmamogging.HEIC" alt="Emma Mogging">
+                <div class="gallery-caption">Emma looking for a huck</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="nancyswag.JPEG" alt="Nancy Swag">
+                <div class="gallery-caption">Nancy Swag</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="oco2025.PNG" alt="OCO 2025">
+                <div class="gallery-caption">Old Capitol Open (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="phil.PNG" alt="Phil">
+                <div class="gallery-caption">Phil helping us with recruitment!</div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="regionals2025.PNG" alt="Regionals 2025">
+                <div class="gallery-caption">Regionals (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="teambracelets.PNG" alt="Team Bracelets">
+                <div class="gallery-caption">Team Friendship Bracelets</div>
+            </div>
+
+             <div class="gallery-item">
+                <img src="alliemog2.jpg" alt="Allie Mog 2">
+                <div class="gallery-caption">Allie snatching that frisbee! </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="vsNW2025.PNG" alt="vs Northwestern 2025">
+                <div class="gallery-caption">Scrimmage vs. Northwestern (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="wenxinmogging.JPG" alt="Wenxin Mogging">
+                <div class="gallery-caption">Wenxin getting lift off!</div>
             </div>
         </div>
     </section>
