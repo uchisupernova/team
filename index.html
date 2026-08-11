@@ -59,6 +59,7 @@
             color: var(--white);
             font-weight: bold;
             letter-spacing: 1px;
+            text-decoration: none;
         }
 
         /* Hero Banner (Maroon to Black Gradient) */
@@ -163,55 +164,6 @@
             font-size: 0.95rem;
         }
 
-        /* Photo Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            aspect-ratio: 4/3;
-            border: 1px solid var(--greystone-light);
-            background-color: var(--accent); /* Black background fallback */
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-            opacity: 0.7;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.85);
-            color: var(--white);
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
-        }
-
         /* Jersey Order / Merch section */
         .merch-box {
             background-color: var(--accent); /* Solid Black Box */
@@ -255,7 +207,6 @@
            MOBILE-RESPONSIVE STYLES (Triggers on screens smaller than 768px wide)
            ========================================================================== */
         @media (max-width: 768px) {
-            /* 1. Stacks Navigation cleanly */
             nav {
                 flex-direction: column;
                 gap: 1rem;
@@ -275,7 +226,6 @@
                 font-size: 0.85rem;
             }
 
-            /* 2. Rescales Hero Banner */
             .hero {
                 padding: 3.5rem 1rem;
             }
@@ -300,7 +250,6 @@
                 font-size: 0.8rem;
             }
 
-            /* 3. Streamlines General Page Spacing */
             section {
                 margin: 2.5rem auto;
                 padding: 0 1rem;
@@ -312,9 +261,8 @@
             }
         }
 
-        /* Minor adjustments for ultra-small mobile displays (under 480px) */
         @media (max-width: 480px) {
-            .roster-grid, .gallery-grid {
+            .roster-grid {
                 gap: 1rem;
             }
 
@@ -331,19 +279,18 @@
 <body>
 
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav>
-        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
             <img src="logo.PNG" alt="UChicago Supernova Logo" style="height: 40px; width: auto; object-fit: contain;">
             <span>UChicago Supernova</span>
-        </div>
+        </a>
         <div>
-            <a href="#about">About</a>
-            <a href="#join" style="color: #ffb703; font-weight: 800;">Join Us!</a> <!-- Highlighted link -->
-            <a href="#roster">Roster</a>
-            <a href="#schedule">Schedule</a>
-            <a href="#photos">Photos</a>
-            <a href="#merch">Jerseys</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#join" style="color: #ffb703; font-weight: 800;">Join Us!</a>
+            <a href="index.html#roster">Roster</a>
+            <a href="index.html#schedule">Schedule</a>
+            <a href="photos.html">Photos</a>
+            <a href="index.html#merch">Jerseys</a>
         </div>
     </nav>
 
@@ -353,7 +300,6 @@
         <p>Official page of the University of Chicago Women's and Non-Binary Frisbee Club. Chasing greatness and laying out on the Midway.</p>
         
         <div class="social-links">
-            <!-- Instagram Link -->
             <a href="https://instagram.com/uchi_supernova" target="_blank" class="social-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -362,14 +308,12 @@
                 </svg>
                 Instagram
             </a>
-            <!-- X/Twitter Link -->
             <a href="https://x.com/uchi_supernova" target="_blank" class="social-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
                 X
             </a>
-            <!-- YouTube Link (Update the href with your real YouTube channel URL) -->
             <a href="https://youtube.com/@uchi_supernova" target="_blank" class="social-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51a3.003 3.003 0 0 0-2.11 2.108C0 8.025 0 12 0 12s0 3.975.502 5.837a3.003 3.003 0 0 0 2.11 2.108c1.863.51 9.388.51 9.388.51s7.525 0 9.388-.51a3.003 3.003 0 0 0 2.11-2.108c.502-1.862.502-5.837.502-5.837s0-3.975-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -378,6 +322,7 @@
             </a>
         </div>
     </header>
+
     <!-- About Section -->
     <section id="about">
         <h2>About Supernova</h2>
@@ -404,8 +349,6 @@
     <!-- Join Us / Recruitment Section -->
     <section id="join">
         <h2>Join Supernova</h2>
-        
-        <!-- Main Pitch / Reassurance Box -->
         <div style="background-color: var(--white); padding: 2.5rem 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid var(--primary); margin-bottom: 2rem; text-align: left;">
             <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.5px;">No Experience? No Problem.</h3>
             <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 0;">
@@ -413,10 +356,7 @@
             </p>
         </div>
 
-        <!-- 3-Column "What to Expect on Day 1" Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; text-align: left; margin-bottom: 2rem;">
-            
-            <!-- Column 1: How to Join -->
             <div style="background-color: var(--white); padding: 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
                 <h4 style="color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; font-size: 1.1rem; letter-spacing: 0.5px;">1. How Do I Start?</h4>
                 <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 1rem;">
@@ -427,7 +367,6 @@
                 </p>
             </div>
 
-            <!-- Column 2: What to Wear & Bring -->
             <div style="background-color: var(--white); padding: 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
                 <h4 style="color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; font-size: 1.1rem; letter-spacing: 0.5px;">2. What Should I Bring?</h4>
                 <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 0.5rem;">
@@ -441,7 +380,6 @@
                 </ul>
             </div>
 
-            <!-- Column 3: Who to Contact -->
             <div style="background-color: var(--white); padding: 2rem; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
                 <h4 style="color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; font-size: 1.1rem; letter-spacing: 0.5px;">3. Still Nervous? Reach Out!</h4>
                 <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 1rem;">
@@ -455,141 +393,116 @@
                     <li>Drop by our table at the RSO Fair!</li>
                 </ul>
             </div>
-
         </div>
     </section>
+
     <!-- Roster Section -->
     <section id="roster">
         <h2>The Roster</h2>
         <div class="roster-grid">
-            
-            <!-- COACHES (First on Roster) -->
             <div class="player-card" style="border-top-color: var(--secondary); background-color: #fafafa;">
                 <div class="player-number" style="font-size: 1.5rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 1px;">Coach</div>
                 <h3>Scott</h3>
                 <p>Position: Head Coach</p>
             </div>
-
-            <!-- HANDLERS (Captains first, then alphabetized) -->
             <div class="player-card" style="border-top-color: var(--primary);">
                 <div class="player-number">#5</div>
                 <h3>Kacey</h3>
                 <p>Position: Handler <strong>(Captain)</strong></p>
             </div>
-
             <div class="player-card" style="border-top-color: var(--primary);">
                 <div class="player-number">#26</div>
                 <h3>Wenxin</h3>
                 <p>Position: Handler <strong>(Captain)</strong></p>
             </div>
-
-            <!-- HYBRIDS (Captains first, then alphabetized) -->
             <div class="player-card" style="border-top-color: var(--primary);">
                 <div class="player-number">#14</div>
                 <h3>Emma</h3>
                 <p>Position: Hybrid <strong>(Captain)</strong></p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#49</div>
                 <h3>Urjita</h3>
                 <p>Position: Handler</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#27</div>
                 <h3>Jolie</h3>
                 <p>Position: Hybrid</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#33</div>
                 <h3>Nina</h3>
                 <p>Position: Hybrid</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#25</div>
                 <h3>Sarah</h3>
                 <p>Position: Hybrid</p>
             </div>
-
-
-            <!-- CUTTERS (Alphabetized) -->
             <div class="player-card">
                 <div class="player-number">#7</div>
                 <h3>Chimin</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#37</div>
                 <h3>Clara</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#23</div>
                 <h3>Eva</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#4</div>
                 <h3>Greta</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#42</div>
                 <h3>Hannah</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#10</div>
                 <h3>Hanying</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#22</div>
                 <h3>Isabelle</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#8</div>
                 <h3>Josephine</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#75</div>
                 <h3>Kathy</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#20</div>
                 <h3>Nora</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#24</div>
                 <h3>Seth</h3>
                 <p>Position: Cutter</p>
             </div>
-
             <div class="player-card">
                 <div class="player-number">#18</div>
                 <h3>Violet</h3>
                 <p>Position: Cutter</p>
             </div>
-
         </div>
     </section>
+
     <!-- Schedule Section -->
     <section id="schedule">
         <h2>Upcoming Schedule</h2>
@@ -599,198 +512,6 @@
             <p style="color: var(--secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
                 We are currently finalizing tournament dates, scrimmages, and practice timelines for the upcoming academic year. Follow our social channels or check back here soon for scheduling updates!
             </p>
-        </div>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <section id="photos">
-        <h2>Team Photos</h2>
-        <div class="gallery-grid">
-
-            <div class="gallery-item">
-                <img src="regionals2026.JPG" alt="Regionals 2026">
-                <div class="gallery-caption">Regionals (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="endofanera.png" alt="End of Regionals 2026">
-                <div class="gallery-caption">Walking out of Regionals (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="glorialayout.png" alt="Gloria Layout">
-                <div class="gallery-caption">Gloria lays out!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="sillyregionals2025.PNG" alt="Silly Regionals 2025">
-                <div class="gallery-caption">Silly Regionals (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="941284F7-AC12-4CC0-8CB2-60A7AC18FEB8.JPG" alt="Supernova Photo">
-                <div class="gallery-caption">Supernova crew at Frisbee Spring Break (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="FFF38142-B9AC-4B76-B7FB-CC5BF38D233E.JPG" alt="Supernova Photo">
-                <div class="gallery-caption">Emma and Urjita having fun at Regionals (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="handstands.png" alt="Handstands">
-                <div class="gallery-caption">Eva and Georgie showing off at Commonwealth (2026)</div>
-            </div>
-
-             <div class="gallery-item">
-                <img src="jocelynmog.JPG" alt="Jocelyn Mog">
-                <div class="gallery-caption">Jocelyn about to make a glorious throw!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="kritidecides.png" alt="Kriti Decides">
-                <div class="gallery-caption">Kriti looking for an under!</div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="alliemog.JPG" alt="Allie Mog">
-                <div class="gallery-caption">Allie laying out!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="baseball2025.PNG" alt="Baseball 2025">
-                <div class="gallery-caption">Frisbee family at a Cubs game (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="bingo.PNG" alt="Supernova Bingo">
-                <div class="gallery-caption">Regionals 2025 Bingo Card</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="commonwealth2025.PNG" alt="Commonwealth 2025">
-                <div class="gallery-caption">Commonwealth (2025)</div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="glorialayouyoung.JPG" alt="Young Gloria">
-                <div class="gallery-caption">Gloria laying out as a freshie!</div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="commonwealth2026.PNG" alt="Commonwealth 2026">
-                <div class="gallery-caption">Commonwealth (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="commonwealthswag2025.PNG" alt="Commonwealth Swag 2025">
-                <div class="gallery-caption">Showing our swag at Commonwealth (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="culvers2025.PNG" alt="Culvers 2025">
-                <div class="gallery-caption">Post-Tournament Culver's Run (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="dock2025.JPG" alt="Dock 2025">
-                <div class="gallery-caption">On the dock at Frisbee Spring Break (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="doingthenancyface.JPG" alt="Doing the Nancy Face">
-                <div class="gallery-caption">Doing the Nancy Face</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="dyingatcommonwealth2026.PNG" alt="Dying at Commonwealth 2026">
-                <div class="gallery-caption">Jolie performs CPR on Emma at Commonwealth (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="elizagloriaflex.PNG" alt="Eliza and Gloria Flex">
-                <div class="gallery-caption">Eliza & Gloria Flexing at Lounge of Lizards (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="kriti_reach.JPG" alt="Kriti Reach">
-                <div class="gallery-caption">Kriti reaching for that snatch!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="emmawithgoldfish.JPG" alt="Emma with Goldfish">
-                <div class="gallery-caption">Emma snacking at Commonwealth (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="endofcommonwealth2026.PNG" alt="End of Commonwealth 2026">
-                <div class="gallery-caption">End of Commonwealth team huddle (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="familyphoto2025.JPG" alt="Family Photo 2025">
-                <div class="gallery-caption">Family Photo (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="incar2026.PNG" alt="In Car 2026">
-                <div class="gallery-caption">On our way to a scrimmage! (2026)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="jocelynmog2.JPG" alt="Jocelyn Mog 2">
-                <div class="gallery-caption">Jocelyn making a glorious catch!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="loungeoflizards2025.PNG" alt="Lounge of Lizards 2025">
-                <div class="gallery-caption">Lounge of Lizards (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="nancyatnattys.JPEG" alt="Nancy at Nattys">
-                <div class="gallery-caption">Nancy is going to Nattys! (2023)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="nancyswag.JPEG" alt="Nancy Swag">
-                <div class="gallery-caption">Nancy Swag</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="oco2025.PNG" alt="OCO 2025">
-                <div class="gallery-caption">Old Capitol Open (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="phil.PNG" alt="Phil">
-                <div class="gallery-caption">Phil helping us with recruitment!</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="regionals2025.PNG" alt="Regionals 2025">
-                <div class="gallery-caption">Regionals (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="teambracelets.PNG" alt="Team Bracelets">
-                <div class="gallery-caption">Team Friendship Bracelets</div>
-            </div>
-
-             <div class="gallery-item">
-                <img src="alliemog2.jpg" alt="Allie Mog 2">
-                <div class="gallery-caption">Allie snatching that frisbee! </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="vsNW2025.PNG" alt="vs Northwestern 2025">
-                <div class="gallery-caption">Scrimmage vs. Northwestern (2025)</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="wenxinmogging.JPG" alt="Wenxin Mogging">
-                <div class="gallery-caption">Wenxin getting lift off!</div>
-            </div>
         </div>
     </section>
 
@@ -813,4 +534,5 @@
     </footer>
 
 </body>
+</html>
 </html>
