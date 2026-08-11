@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supernova Team Gallery</title>
+    <style>
+        /* UChicago Official Color Palette System */
+        :root {
+            --primary: #800000;      /* UChicago Maroon */
+            --secondary: #737373;    /* Dark Greystone */
+            --accent: #000000;       /* Black */
+            --bg-light: #f8f9fa;     /* Soft Light Gray Background */
+            --white: #ffffff;
+            --text-dark: #1a1a1a;    /* Off-black for high contrast readability */
+            --greystone-light: #D9D9D9; /* Light Greystone */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--accent); /* Black navbar */
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary); /* Maroon bottom accent */
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--greystone-light);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        /* Header block for Photos */
+        .photo-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .photo-header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section layout */
+        section {
+            max-width: 1100px;
+            margin: 3.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            aspect-ratio: 4/3;
+            border: 1px solid var(--greystone-light);
+            background-color: var(--accent); /* Black background fallback */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: var(--white);
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            border-top: 4px solid var(--primary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+                text-align: center;
+            }
+
+            nav div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                margin: 2.5rem auto;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.PNG" alt="UChicago Supernova Logo" style="height: 40px; width: auto; object-fit: contain;">
+            <span>UChicago Supernova</span>
+        </a>
+        <div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#join" style="color: #ffb703; font-weight: 800;">Join Us!</a>
+            <a href="index.html#roster">Roster</a>
+            <a href="index.html#schedule">Schedule</a>
+            <a href="photos.html">Photos</a>
+            <a href="index.html#merch">Jerseys</a>
+        </div>
+    </nav>
+
+    <header class="photo-header">
+        <h1>Supernova Gallery</h1>
+        <p style="color: rgba(255, 255, 255, 0.8);">Moments from our games, practices, and tournaments.</p>
+    </header>
+
+    <!-- Photo Gallery Section -->
+    <section id="photos">
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="regionals2026.JPG" alt="Regionals 2026" loading="lazy">
+                <div class="gallery-caption">Regionals (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="endofanera.png" alt="End of Regionals 2026" loading="lazy">
+                <div class="gallery-caption">Walking out of Regionals (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="glorialayout.png" alt="Gloria Layout" loading="lazy">
+                <div class="gallery-caption">Gloria lays out!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="sillyregionals2025.PNG" alt="Silly Regionals 2025" loading="lazy">
+                <div class="gallery-caption">Silly Regionals (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="941284F7-AC12-4CC0-8CB2-60A7AC18FEB8.JPG" alt="Supernova Photo" loading="lazy">
+                <div class="gallery-caption">Supernova crew at Frisbee Spring Break (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="FFF38142-B9AC-4B76-B7FB-CC5BF38D233E.JPG" alt="Supernova Photo" loading="lazy">
+                <div class="gallery-caption">Emma and Urjita having fun at Regionals (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="handstands.png" alt="Handstands" loading="lazy">
+                <div class="gallery-caption">Eva and Georgie showing off at Commonwealth (2026)</div>
+            </div>
+
+             <div class="gallery-item">
+                <img src="jocelynmog.JPG" alt="Jocelyn Mog" loading="lazy">
+                <div class="gallery-caption">Jocelyn about to make a glorious throw!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="kritidecides.png" alt="Kriti Decides" loading="lazy">
+                <div class="gallery-caption">Kriti looking for an under!</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="alliemog.JPG" alt="Allie Mog" loading="lazy">
+                <div class="gallery-caption">Allie laying out!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="baseball2025.PNG" alt="Baseball 2025" loading="lazy">
+                <div class="gallery-caption">Frisbee family at a Cubs game (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="bingo.PNG" alt="Supernova Bingo" loading="lazy">
+                <div class="gallery-caption">Regionals 2025 Bingo Card</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="commonwealth2025.PNG" alt="Commonwealth 2025" loading="lazy">
+                <div class="gallery-caption">Commonwealth (2025)</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="glorialayouyoung.JPG" alt="Young Gloria" loading="lazy">
+                <div class="gallery-caption">Gloria laying out as a freshie!</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="commonwealth2026.PNG" alt="Commonwealth 2026" loading="lazy">
+                <div class="gallery-caption">Commonwealth (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="commonwealthswag2025.PNG" alt="Commonwealth Swag 2025" loading="lazy">
+                <div class="gallery-caption">Showing our swag at Commonwealth (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="culvers2025.PNG" alt="Culvers 2025" loading="lazy">
+                <div class="gallery-caption">Post-Tournament Culver's Run (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="dock2025.JPG" alt="Dock 2025" loading="lazy">
+                <div class="gallery-caption">On the dock at Frisbee Spring Break (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="doingthenancyface.JPG" alt="Doing the Nancy Face" loading="lazy">
+                <div class="gallery-caption">Doing the Nancy Face</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="dyingatcommonwealth2026.PNG" alt="Dying at Commonwealth 2026" loading="lazy">
+                <div class="gallery-caption">Jolie performs CPR on Emma at Commonwealth (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="elizagloriaflex.PNG" alt="Eliza and Gloria Flex" loading="lazy">
+                <div class="gallery-caption">Eliza & Gloria Flexing at Lounge of Lizards (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="kriti_reach.JPG" alt="Kriti Reach" loading="lazy">
+                <div class="gallery-caption">Kriti reaching for that snatch!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="emmawithgoldfish.JPG" alt="Emma with Goldfish" loading="lazy">
+                <div class="gallery-caption">Emma snacking at Commonwealth (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="endofcommonwealth2026.PNG" alt="End of Commonwealth 2026" loading="lazy">
+                <div class="gallery-caption">End of Commonwealth team huddle (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="familyphoto2025.JPG" alt="Family Photo 2025" loading="lazy">
+                <div class="gallery-caption">Family Photo (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="incar2026.PNG" alt="In Car 2026" loading="lazy">
+                <div class="gallery-caption">On our way to a scrimmage! (2026)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="jocelynmog2.JPG" alt="Jocelyn Mog 2" loading="lazy">
+                <div class="gallery-caption">Jocelyn making a glorious catch!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="loungeoflizards2025.PNG" alt="Lounge of Lizards 2025" loading="lazy">
+                <div class="gallery-caption">Lounge of Lizards (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="nancyatnattys.JPEG" alt="Nancy at Nattys" loading="lazy">
+                <div class="gallery-caption">Nancy is going to Nattys! (2023)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="nancyswag.JPEG" alt="Nancy Swag" loading="lazy">
+                <div class="gallery-caption">Nancy Swag</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="oco2025.PNG" alt="OCO 2025" loading="lazy">
+                <div class="gallery-caption">Old Capitol Open (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="phil.PNG" alt="Phil" loading="lazy">
+                <div class="gallery-caption">Phil helping us with recruitment!</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="regionals2025.PNG" alt="Regionals 2025" loading="lazy">
+                <div class="gallery-caption">Regionals (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="teambracelets.PNG" alt="Team Bracelets" loading="lazy">
+                <div class="gallery-caption">Team Friendship Bracelets</div>
+            </div>
+
+             <div class="gallery-item">
+                <img src="alliemog2.jpg" alt="Allie Mog 2" loading="lazy">
+                <div class="gallery-caption">Allie snatching that frisbee! </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="vsNW2025.PNG" alt="vs Northwestern 2025" loading="lazy">
+                <div class="gallery-caption">Scrimmage vs. Northwestern (2025)</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="wenxinmogging.JPG" alt="Wenxin Mogging" loading="lazy">
+                <div class="gallery-caption">Wenxin getting lift off!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 UChicago Women's and Non-Binary Ultimate Frisbee Club. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
